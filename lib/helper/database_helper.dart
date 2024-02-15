@@ -30,6 +30,7 @@ class DatabaseHelper {
     await db.execute('''
       CREATE TABLE User (
         id INTEGER PRIMARY KEY,
+        username TEXT,
         usermail TEXT,
         password TEXT
       )

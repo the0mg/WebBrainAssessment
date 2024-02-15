@@ -14,6 +14,7 @@ class RegPage extends StatefulWidget {
 
 class _RegPageState extends State<RegPage> {
 
+  TextEditingController nameCtr = TextEditingController();
   TextEditingController mailCtr = TextEditingController();
   TextEditingController pwdCtr = TextEditingController();
 
@@ -22,6 +23,7 @@ class _RegPageState extends State<RegPage> {
     // TODO: implement dispose
     mailCtr.dispose();
     pwdCtr.dispose();
+    nameCtr.dispose();
     super.dispose();
   }
 
@@ -80,6 +82,20 @@ class _RegPageState extends State<RegPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text(
+                          'Name',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 15
+                          ),
+                        ),
+                        const SizedBox(height: 10,),
+                        TxtField(
+                          ctr: nameCtr,
+                          hintTxt: 'Enter name',
+                          txtInputType: TextInputType.text,
+                        ),
+                        const SizedBox(height: 18,),
+                        const Text(
                           'Email',
                           style: TextStyle(
                               color: Colors.black,
@@ -115,12 +131,14 @@ class _RegPageState extends State<RegPage> {
                       onTap: () async {
                         //check if it's null or not
                         if(isValid()){
-                          String username = mailCtr.text;
+                          String username = nameCtr.text;
+                          String userMail = mailCtr.text;
                           String password = pwdCtr.text;
-                          Map<String, dynamic>? existingUser = await DatabaseHelper().getUser(username);
+                          Map<String, dynamic>? existingUser = await DatabaseHelper().getUser(userMail);
                           if (existingUser == null) {
                             Map<String, dynamic> newUser = {
-                              'usermail': username,
+                              'username': username,
+                              'usermail': userMail,
                               'password': password,
                             };
                             await DatabaseHelper().saveUser(newUser);
@@ -168,7 +186,11 @@ class _RegPageState extends State<RegPage> {
   }
 
   bool isValid(){
-    if(mailCtr.text.trim()==''){
+    if(nameCtr.text.trim()==''){
+      var snackBar = const SnackBar(content: Text('Please enter name'));
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      return false;
+    }else if(mailCtr.text.trim()==''){
       var snackBar = const SnackBar(content: Text('Please enter email'));
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
       return false;
