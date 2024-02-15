@@ -206,12 +206,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(height: 25,),
                 InkWell(
                   onTap: () async {
-                    //check if it's null or not
-                    if(isValid()){
                       //going to sign up page
                       Get.to(()=>const RegPage());
-                    }
-
                   },
                   child: SizedBox(
                     width: size.width,
