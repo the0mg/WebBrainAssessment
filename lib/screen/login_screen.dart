@@ -107,7 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text(
+                            /*  const Text(
                                 'Name',
                                 style: TextStyle(
                                     color: Colors.black,
@@ -120,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 hintTxt: 'Enter name',
                                 txtInputType: TextInputType.text,
                               ),
-                              const SizedBox(height: 18,),
+                              const SizedBox(height: 18,),*/
                               const Text(
                                 'Email',
                                 style: TextStyle(
@@ -254,11 +254,11 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   bool isValid(){
-    if(nameCtr.text.trim()==''){
+    /*if(nameCtr.text.trim()==''){
       var snackBar = const SnackBar(content: Text('Please enter name'));
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
       return false;
-    }else if(mailCtr.text.trim()==''){
+    }else */if(mailCtr.text.trim()==''){
       var snackBar = const SnackBar(content: Text('Please enter email'));
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
       return false;
