@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:webbrainassesment/const/color_const.dart';
 import 'package:webbrainassesment/screen/login_screen.dart';
+import 'package:webbrainassesment/screen/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
               secondary: ColorConst.secondaryColor,
               brightness: Brightness.light)
       ),
-      home: const LoginScreen(),
+      home: const SplashScreen(),
     );
   }
 }
