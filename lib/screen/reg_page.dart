@@ -104,6 +104,7 @@ class _RegPageState extends State<RegPage> {
                           TxtField(
                             ctr: nameCtr,
                             hintTxt: 'Enter name',
+                            icon: CupertinoIcons.person,
                             txtInputType: TextInputType.text,
                           ),
                           const SizedBox(height: 18,),
@@ -181,7 +182,7 @@ class _RegPageState extends State<RegPage> {
                               color: ColorConst.btnColor
                           ),
                           child: const Text(
-                            'Log In',
+                            'Sign Up',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 color: Colors.white
