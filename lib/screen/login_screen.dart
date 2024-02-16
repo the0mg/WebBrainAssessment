@@ -149,6 +149,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 TxtField(
                                   ctr: pwdCtr,
                                   icon: Icons.lock,
+                                  obscureText: true,
                                   txtInputType: TextInputType.visiblePassword,
                                   hintTxt: 'Enter password',
                                 ),

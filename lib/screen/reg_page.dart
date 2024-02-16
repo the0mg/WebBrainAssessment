@@ -133,6 +133,7 @@ class _RegPageState extends State<RegPage> {
                           TxtField(
                             ctr: pwdCtr,
                             icon: Icons.lock,
+                            obscureText: true,
                             txtInputType: TextInputType.visiblePassword,
                             hintTxt: 'Enter password',
                           ),

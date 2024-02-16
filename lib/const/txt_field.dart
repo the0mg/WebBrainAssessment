@@ -16,6 +16,7 @@ class TxtField extends StatelessWidget {
   int maxLine;
   bool isReadOnly;
   bool centerTxt;
+  bool obscureText;
   List<TextInputFormatter>? inputFormatters;
   FormFieldValidator? validator;
   ValueChanged<String>? onChanged;
@@ -34,6 +35,7 @@ class TxtField extends StatelessWidget {
         this.minLine=1,
         this.isReadOnly=false,
         this.centerTxt=false,
+        this.obscureText=false,
         this.inputFormatters,
         this.validator,
         this.onChanged,
@@ -53,6 +55,7 @@ class TxtField extends StatelessWidget {
       child: TextFormField(
         inputFormatters: inputFormatters,
         validator: validator,
+        obscureText: obscureText,
         decoration: InputDecoration(
           enabledBorder:  OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
